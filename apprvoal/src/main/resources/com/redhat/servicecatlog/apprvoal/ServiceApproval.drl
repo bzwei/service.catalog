@@ -1,2 +1,13 @@
 package com.redhat.servicecatlog.apprvoal;
 
+import com.redhat.servicecatlog.RequestItem;
+import com.redhat.servicecatlog.ServiceRequest;
+
+rule "ServiceApproval"
+  when
+    request : ServiceRequest(status != null)
+    item : RequestItem(cpu < 2 && memory < 16)
+  then
+    modify(request) {setStatus("Approved")};
+    System.out.println("fired rule " + kcontext.getRule().getName());
+end
