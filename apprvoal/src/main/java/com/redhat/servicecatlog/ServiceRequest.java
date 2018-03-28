@@ -15,8 +15,20 @@ public class ServiceRequest implements java.io.Serializable
    @org.kie.api.definition.type.Label("Status")
    private java.lang.String status;
 
-   @org.kie.api.definition.type.Label(value = "Request Item")
+   @org.kie.api.definition.type.Label("Request Item")
    private com.redhat.servicecatlog.RequestItem item;
+
+   @org.kie.api.definition.type.Label(value = "Service Catalog Name")
+   private java.lang.String serviceName;
+
+   @org.kie.api.definition.type.Label(value = "User Approval Label")
+   private java.lang.String userLabel;
+
+   @org.kie.api.definition.type.Label(value = "Project Approval Label")
+   private java.lang.String projectLabel;
+
+   @org.kie.api.definition.type.Label(value = "Service Item Approval Label")
+   private java.lang.String serviceLabel;
 
    public ServiceRequest()
    {
@@ -52,12 +64,58 @@ public class ServiceRequest implements java.io.Serializable
       this.item = item;
    }
 
+   public java.lang.String getServiceName()
+   {
+      return this.serviceName;
+   }
+
+   public void setServiceName(java.lang.String serviceName)
+   {
+      this.serviceName = serviceName;
+   }
+
+   public java.lang.String getUserLabel()
+   {
+      return this.userLabel;
+   }
+
+   public void setUserLabel(java.lang.String userLabel)
+   {
+      this.userLabel = userLabel;
+   }
+
+   public java.lang.String getProjectLabel()
+   {
+      return this.projectLabel;
+   }
+
+   public void setProjectLabel(java.lang.String projectLabel)
+   {
+      this.projectLabel = projectLabel;
+   }
+
+   public java.lang.String getServiceLabel()
+   {
+      return this.serviceLabel;
+   }
+
+   public void setServiceLabel(java.lang.String serviceLabel)
+   {
+      this.serviceLabel = serviceLabel;
+   }
+
    public ServiceRequest(java.lang.String requestor, java.lang.String status,
-         com.redhat.servicecatlog.RequestItem item)
+         com.redhat.servicecatlog.RequestItem item,
+         java.lang.String serviceName, java.lang.String userLabel,
+         java.lang.String projectLabel, java.lang.String serviceLabel)
    {
       this.requestor = requestor;
       this.status = status;
       this.item = item;
+      this.serviceName = serviceName;
+      this.userLabel = userLabel;
+      this.projectLabel = projectLabel;
+      this.serviceLabel = serviceLabel;
    }
 
 }
