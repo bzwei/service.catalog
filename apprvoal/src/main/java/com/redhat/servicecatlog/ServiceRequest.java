@@ -12,23 +12,23 @@ public class ServiceRequest implements java.io.Serializable
 
    @org.kie.api.definition.type.Label("Requestor")
    private java.lang.String requestor;
-   @org.kie.api.definition.type.Label("Status")
-   private java.lang.String status;
-
    @org.kie.api.definition.type.Label("Request Item")
    private com.redhat.servicecatlog.RequestItem item;
 
-   @org.kie.api.definition.type.Label(value = "Service Catalog Name")
+   @org.kie.api.definition.type.Label("Service Catalog Name")
    private java.lang.String serviceName;
 
-   @org.kie.api.definition.type.Label(value = "User Approval Label")
+   @org.kie.api.definition.type.Label("User Approval Label")
    private java.lang.String userLabel;
 
-   @org.kie.api.definition.type.Label(value = "Project Approval Label")
+   @org.kie.api.definition.type.Label("Project Approval Label")
    private java.lang.String projectLabel;
 
-   @org.kie.api.definition.type.Label(value = "Service Item Approval Label")
+   @org.kie.api.definition.type.Label("Service Item Approval Label")
    private java.lang.String serviceLabel;
+
+   @org.kie.api.definition.type.Label(value = "Approval Status")
+   private java.lang.String approvalStatus;
 
    public ServiceRequest()
    {
@@ -42,16 +42,6 @@ public class ServiceRequest implements java.io.Serializable
    public void setRequestor(java.lang.String requestor)
    {
       this.requestor = requestor;
-   }
-
-   public java.lang.String getStatus()
-   {
-      return this.status;
-   }
-
-   public void setStatus(java.lang.String status)
-   {
-      this.status = status;
    }
 
    public com.redhat.servicecatlog.RequestItem getItem()
@@ -104,18 +94,29 @@ public class ServiceRequest implements java.io.Serializable
       this.serviceLabel = serviceLabel;
    }
 
-   public ServiceRequest(java.lang.String requestor, java.lang.String status,
+   public java.lang.String getApprovalStatus()
+   {
+      return this.approvalStatus;
+   }
+
+   public void setApprovalStatus(java.lang.String approvalStatus)
+   {
+      this.approvalStatus = approvalStatus;
+   }
+
+   public ServiceRequest(java.lang.String requestor,
          com.redhat.servicecatlog.RequestItem item,
          java.lang.String serviceName, java.lang.String userLabel,
-         java.lang.String projectLabel, java.lang.String serviceLabel)
+         java.lang.String projectLabel, java.lang.String serviceLabel,
+         java.lang.String approvalStatus)
    {
       this.requestor = requestor;
-      this.status = status;
       this.item = item;
       this.serviceName = serviceName;
       this.userLabel = userLabel;
       this.projectLabel = projectLabel;
       this.serviceLabel = serviceLabel;
+      this.approvalStatus = approvalStatus;
    }
 
 }
