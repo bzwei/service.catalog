@@ -4,10 +4,10 @@ import com.redhat.servicecatlog.RequestItem;
 import com.redhat.servicecatlog.ServiceRequest;
 
 rule "ServiceApproval"
+  ruleflow-group "approval_group"
   when
-    request : ServiceRequest(status != null)
-    item : RequestItem(cpu < 2 && memory < 16)
+    request : ServiceRequest(status != null && (userLabel=="Requires-Approval"))
   then
-    modify(request) {setStatus("Approved")};
+    modify(request) {setApprovalStatus("Manual")};
     System.out.println("fired rule " + kcontext.getRule().getName());
 end
