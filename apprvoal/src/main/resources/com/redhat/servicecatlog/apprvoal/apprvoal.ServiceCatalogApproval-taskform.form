@@ -3,13 +3,6 @@
 <property name="name" value="apprvoal.ServiceCatalogApproval-taskform.form"/>
 <property name="displayMode" value="default"/>
 <property name="status" value="0"/>
-<field position="5" name="approvalRequest_status" type="InputText" id="1863807221">
-<property name="fieldRequired" value="false"/>
-<property name="label" value="quot;enquot;,quot;status (approvalRequest)quot;"/>
-<property name="readonly" value="false"/>
-<property name="outputBinding" value="approvalRequest/status"/>
-<property name="fieldClass" value="java.lang.String"/>
-</field>
 <field position="0" name="approvalRequest_item" type="Subform" id="1401657235">
 <property name="fieldRequired" value="false"/>
 <property name="label" value="quot;enquot;,quot;item (approvalRequest)quot;"/>
@@ -43,6 +36,13 @@
 <property name="label" value="quot;enquot;,quot;serviceName (approvalRequest)quot;"/>
 <property name="readonly" value="false"/>
 <property name="outputBinding" value="approvalRequest/serviceName"/>
+<property name="fieldClass" value="java.lang.String"/>
+</field>
+<field position="5" name="approvalRequest_status" type="InputText" id="1863807221">
+<property name="fieldRequired" value="false"/>
+<property name="label" value="quot;enquot;,quot;status (approvalRequest)quot;"/>
+<property name="readonly" value="false"/>
+<property name="outputBinding" value="approvalRequest/status"/>
 <property name="fieldClass" value="java.lang.String"/>
 </field>
 <field position="6" name="approvalRequest_userLabel" type="InputText" id="427751792">
