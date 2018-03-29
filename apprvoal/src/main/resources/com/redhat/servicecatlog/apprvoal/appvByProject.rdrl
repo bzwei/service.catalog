@@ -1,9 +1,0 @@
-package com.redhat.servicecatlog.apprvoal;
-
-import java.lang.Number;
-
-rule "appvByProject"
-	dialect "mvel"
-	when
-	then
-end
