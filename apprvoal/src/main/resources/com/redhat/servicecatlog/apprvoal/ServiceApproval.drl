@@ -6,7 +6,7 @@ import com.redhat.servicecatlog.ServiceRequest;
 rule "ServiceApproval"
   ruleflow-group "approval_group"
   when
-    request : ServiceRequest(approvalStatus != null && (userLabel=="Requires-Approval"))
+    request : ServiceRequest(approvalStatus != "Manual" && (userLabel=="Requires-Approval"))
   then
     modify(request) {setApprovalStatus("Manual")};
     System.out.println("fired rule " + kcontext.getRule().getName());
