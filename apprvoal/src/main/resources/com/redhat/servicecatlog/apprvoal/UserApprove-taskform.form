@@ -3,15 +3,7 @@
 <property name="name" value="UserApprove-taskform.form"/>
 <property name="displayMode" value="default"/>
 <property name="status" value="0"/>
-<field position="0" name="approvalRequest_item" type="Subform" id="272805081">
-<property name="fieldRequired" value="false"/>
-<property name="label" value="quot;enquot;,quot;item (approvalRequest)quot;"/>
-<property name="readonly" value="false"/>
-<property name="inputBinding" value="inputRequest/item"/>
-<property name="outputBinding" value="outputRequest/item"/>
-<property name="fieldClass" value="java.lang.Object"/>
-</field>
-<field position="1" name="approvalRequest_projectLabel" type="InputText" id="490775500">
+<field position="0" name="approvalRequest_projectLabel" type="InputText" id="490775500">
 <property name="fieldRequired" value="false"/>
 <property name="label" value="quot;enquot;,quot;projectLabel (approvalRequest)quot;"/>
 <property name="readonly" value="false"/>
@@ -19,7 +11,7 @@
 <property name="outputBinding" value="outputRequest/projectLabel"/>
 <property name="fieldClass" value="java.lang.String"/>
 </field>
-<field position="2" name="approvalRequest_requestor" type="InputText" id="412495258">
+<field position="1" name="approvalRequest_requestor" type="InputText" id="412495258">
 <property name="fieldRequired" value="false"/>
 <property name="label" value="quot;enquot;,quot;requestor (approvalRequest)quot;"/>
 <property name="readonly" value="false"/>
@@ -27,7 +19,7 @@
 <property name="outputBinding" value="outputRequest/requestor"/>
 <property name="fieldClass" value="java.lang.String"/>
 </field>
-<field position="3" name="approvalRequest_serviceLabel" type="InputText" id="193409897">
+<field position="2" name="approvalRequest_serviceLabel" type="InputText" id="193409897">
 <property name="fieldRequired" value="false"/>
 <property name="label" value="quot;enquot;,quot;serviceLabel (approvalRequest)quot;"/>
 <property name="readonly" value="false"/>
@@ -35,7 +27,7 @@
 <property name="outputBinding" value="outputRequest/serviceLabel"/>
 <property name="fieldClass" value="java.lang.String"/>
 </field>
-<field position="4" name="approvalRequest_serviceName" type="InputText" id="365421905">
+<field position="3" name="approvalRequest_serviceName" type="InputText" id="365421905">
 <property name="fieldRequired" value="false"/>
 <property name="label" value="quot;enquot;,quot;serviceName (approvalRequest)quot;"/>
 <property name="readonly" value="false"/>
@@ -43,7 +35,7 @@
 <property name="outputBinding" value="outputRequest/serviceName"/>
 <property name="fieldClass" value="java.lang.String"/>
 </field>
-<field position="5" name="approvalRequest_status" type="InputText" id="659238138">
+<field position="4" name="approvalRequest_status" type="InputText" id="659238138">
 <property name="fieldRequired" value="false"/>
 <property name="label" value="quot;enquot;,quot;status (approvalRequest)quot;"/>
 <property name="readonly" value="false"/>
@@ -51,7 +43,7 @@
 <property name="outputBinding" value="outputRequest/status"/>
 <property name="fieldClass" value="java.lang.String"/>
 </field>
-<field position="6" name="approvalRequest_userLabel" type="InputText" id="239752329">
+<field position="5" name="approvalRequest_userLabel" type="InputText" id="239752329">
 <property name="fieldRequired" value="false"/>
 <property name="label" value="quot;enquot;,quot;userLabel (approvalRequest)quot;"/>
 <property name="readonly" value="false"/>
