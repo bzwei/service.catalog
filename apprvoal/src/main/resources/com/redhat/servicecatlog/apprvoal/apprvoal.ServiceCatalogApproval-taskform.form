@@ -1,0 +1,55 @@
+
+<form id="321476641">
+<property name="name" value="apprvoal.ServiceCatalogApproval-taskform.form"/>
+<property name="displayMode" value="default"/>
+<property name="status" value="0"/>
+<field position="0" name="projectLabel" type="InputText" id="1326810953">
+<property name="fieldRequired" value="false"/>
+<property name="label" value="quot;enquot;,quot;projectLabel (projectLabel)quot;"/>
+<property name="readonly" value="false"/>
+<property name="outputBinding" value="projectLabel"/>
+<property name="fieldClass" value="java.lang.String"/>
+</field>
+<field position="1" name="requesterName" type="InputText" id="997170346">
+<property name="fieldRequired" value="false"/>
+<property name="label" value="quot;enquot;,quot;requesterName (requesterName)quot;"/>
+<property name="readonly" value="false"/>
+<property name="outputBinding" value="requesterName"/>
+<property name="fieldClass" value="java.lang.String"/>
+</field>
+<field position="2" name="serviceLabel" type="InputText" id="682985231">
+<property name="fieldRequired" value="false"/>
+<property name="label" value="quot;enquot;,quot;serviceLabel (serviceLabel)quot;"/>
+<property name="readonly" value="false"/>
+<property name="outputBinding" value="serviceLabel"/>
+<property name="fieldClass" value="java.lang.String"/>
+</field>
+<field position="3" name="serviceName" type="InputText" id="1025390007">
+<property name="fieldRequired" value="false"/>
+<property name="label" value="quot;enquot;,quot;serviceName (serviceName)quot;"/>
+<property name="readonly" value="false"/>
+<property name="outputBinding" value="serviceName"/>
+<property name="fieldClass" value="java.lang.String"/>
+</field>
+<field position="4" name="userLabel" type="InputText" id="1759737522">
+<property name="fieldRequired" value="false"/>
+<property name="label" value="quot;enquot;,quot;userLabel (userLabel)quot;"/>
+<property name="readonly" value="false"/>
+<property name="outputBinding" value="userLabel"/>
+<property name="fieldClass" value="java.lang.String"/>
+</field>
+<field position="5" name="approvalStatus" type="InputText" id="924307573">
+<property name="fieldRequired" value="false"/>
+<property name="label" value="quot;enquot;,quot;approvalStatus (approvalStatus)quot;"/>
+<property name="readonly" value="false"/>
+<property name="outputBinding" value="approvalStatus"/>
+<property name="fieldClass" value="java.lang.String"/>
+</field>
+<dataHolder inputId="" name="#E9E371" type="dataModelerEntry" outId="approvalRequest" value="com.redhat.servicecatlog.ServiceRequest" id="approvalRequest"/>
+<dataHolder inputId="" name="#A7E690" type="basicType" outId="approvalStatus" value="java.lang.String" id="approvalStatus"/>
+<dataHolder inputId="" name="#B29FE4" type="basicType" outId="projectLabel" value="java.lang.String" id="projectLabel"/>
+<dataHolder inputId="" name="#FF54A7" type="basicType" outId="requesterName" value="java.lang.String" id="requesterName"/>
+<dataHolder inputId="" name="#FBB767" type="basicType" outId="serviceLabel" value="java.lang.String" id="serviceLabel"/>
+<dataHolder inputId="" name="#BBBBBB" type="basicType" outId="serviceName" value="java.lang.String" id="serviceName"/>
+<dataHolder inputId="" name="#9BCAFA" type="basicType" outId="userLabel" value="java.lang.String" id="userLabel"/>
+</form>
