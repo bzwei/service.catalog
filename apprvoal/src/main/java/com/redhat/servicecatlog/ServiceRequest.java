@@ -27,9 +27,6 @@ public class ServiceRequest implements java.io.Serializable
    @org.kie.api.definition.type.Label("Service Item Approval Label")
    private java.lang.String serviceLabel;
 
-   @org.kie.api.definition.type.Label(value = "Approval Status")
-   private java.lang.String approvalStatus;
-
    public ServiceRequest()
    {
    }
@@ -94,21 +91,10 @@ public class ServiceRequest implements java.io.Serializable
       this.serviceLabel = serviceLabel;
    }
 
-   public java.lang.String getApprovalStatus()
-   {
-      return this.approvalStatus;
-   }
-
-   public void setApprovalStatus(java.lang.String approvalStatus)
-   {
-      this.approvalStatus = approvalStatus;
-   }
-
    public ServiceRequest(java.lang.String requestor,
          com.redhat.servicecatlog.RequestItem item,
          java.lang.String serviceName, java.lang.String userLabel,
-         java.lang.String projectLabel, java.lang.String serviceLabel,
-         java.lang.String approvalStatus)
+         java.lang.String projectLabel, java.lang.String serviceLabel)
    {
       this.requestor = requestor;
       this.item = item;
@@ -116,7 +102,6 @@ public class ServiceRequest implements java.io.Serializable
       this.userLabel = userLabel;
       this.projectLabel = projectLabel;
       this.serviceLabel = serviceLabel;
-      this.approvalStatus = approvalStatus;
    }
 
 }
