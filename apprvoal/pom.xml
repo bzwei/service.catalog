@@ -3,7 +3,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.redhat.servicecatlog</groupId>
-  <artifactId>apprvoal</artifactId>
+  <artifactId>approval</artifactId>
   <version>1.0.11</version>
   <packaging>kjar</packaging>
   <name>apprvoal</name>
