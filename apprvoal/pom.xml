@@ -6,7 +6,7 @@
   <artifactId>approval</artifactId>
   <version>1.0.13</version>
   <packaging>kjar</packaging>
-  <name>apprvoal</name>
+  <name>approval</name>
   <description>service request approval</description>
   <repositories>
     <repository>
