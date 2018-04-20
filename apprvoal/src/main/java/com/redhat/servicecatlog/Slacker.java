@@ -51,7 +51,7 @@ public class Slacker implements java.io.Serializable
    public notifySlack()
    {
 		String requestId = catalog + java.util.UUID.randomUUID();
-		String title = String.format("\"%s want to order from catalog %s for %s\"", requester, catalog, item);
+		String title = String.format("\"%s want to order from catalog %s for %s.\"", requester, catalog, item);
 		String body = String.join("\n"
 				, "{"
 				, "    \"text\": " + title + ","
@@ -78,7 +78,7 @@ public class Slacker implements java.io.Serializable
 				, "}"
 		);
 		
-		java.net.URL url = new java.net.URL(slackChannel);
+		java.net.URL url = new java.net.URL(slackAddress);
 		java.net.HttpURLConnection conn = (java.net.HttpURLConnection)url.openConnection();
 		conn.setDoOutput(true);
 		conn.setRequestMethod("POST");
