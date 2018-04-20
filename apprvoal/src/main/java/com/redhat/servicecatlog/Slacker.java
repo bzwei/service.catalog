@@ -19,7 +19,7 @@ public class Slacker implements java.io.Serializable
    private java.lang.String approvalStatus;
 
    @org.kie.api.definition.type.Label("Request Item for approval")
-   private com.redhat.servicecatlog.RequestItem item;
+   private RequestItem item;
 
    @org.kie.api.definition.type.Label(value = "Requester Name")
    private java.lang.String requester;
@@ -148,12 +148,12 @@ public class Slacker implements java.io.Serializable
       this.approvalStatus = approvalStatus;
    }
 
-   public com.redhat.servicecatlog.RequestItem getItem()
+   public RequestItem getItem()
    {
       return this.item;
    }
 
-   public void setItem(com.redhat.servicecatlog.RequestItem item)
+   public void setItem(RequestItem item)
    {
       this.item = item;
    }
@@ -180,7 +180,7 @@ public class Slacker implements java.io.Serializable
 
    public Slacker(java.lang.String slackAddress, java.lang.String slackChannel,
          java.lang.String approvalStatus,
-         com.redhat.servicecatlog.RequestItem item, java.lang.String requester,
+         RequestItem item, java.lang.String requester,
          java.lang.String catalog)
    {
       this.slackAddress = slackAddress;
