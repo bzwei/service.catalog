@@ -60,7 +60,6 @@ public class RequestItem implements java.io.Serializable
    }
    
    public String toString() {
-       return "cpu=" + cpu + ", memoery=" + memory + "G, disk=" + disk + "G";
+     return String.format("%d cpu(s), %dG memoery, and %dG storage", cpu, memoery, disk);
    }
-
 }
