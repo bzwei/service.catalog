@@ -12,6 +12,7 @@ public class ServiceRequest implements java.io.Serializable
 
    @org.kie.api.definition.type.Label("Requestor")
    private java.lang.String requestor;
+   
    @org.kie.api.definition.type.Label("Request Item")
    private com.redhat.servicecatlog.RequestItem item;
 
