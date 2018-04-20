@@ -180,12 +180,14 @@ public class Slacker implements java.io.Serializable
 
    public Slacker(java.lang.String slackAddress, java.lang.String slackChannel,
          java.lang.String approvalStatus,
-         com.redhat.servicecatlog.RequestItem item, java.lang.String requester)
+         com.redhat.servicecatlog.RequestItem item, java.lang.String requester,
+         java.lang.String catalog)
    {
       this.slackAddress = slackAddress;
       this.slackChannel = slackChannel;
       this.approvalStatus = approvalStatus;
       this.item = item;
       this.requester = requester;
+      this.catalog = catalog;
    }
 }
