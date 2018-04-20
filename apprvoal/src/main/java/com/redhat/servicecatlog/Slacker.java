@@ -23,6 +23,9 @@ public class Slacker implements java.io.Serializable
 
    @org.kie.api.definition.type.Label(value = "Requester Name")
    private java.lang.String requester;
+   
+   @org.kie.api.definition.type.Label(value = "Catalog Name")
+   private java.lang.String catalogr;
 
    public Slacker()
    {
@@ -127,6 +130,16 @@ public class Slacker implements java.io.Serializable
    public void setRequester(java.lang.String requester)
    {
       this.requester = requester;
+   }
+   
+   public java.lang.String getCatalog()
+   {
+      return this.catalog;
+   }
+   
+   public void setCatalog(java.lang.String catalog)
+   {
+       this.catalog = catalog;
    }
 
    public Slacker(java.lang.String slackAddress, java.lang.String slackChannel,
