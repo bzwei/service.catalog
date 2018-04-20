@@ -27,7 +27,7 @@ public class Slacker implements java.io.Serializable
    @org.kie.api.definition.type.Label(value = "Catalog Name")
    private java.lang.String catalog;
    
-   private requestId;
+   private String requestId;
 
    public Slacker()
    {
