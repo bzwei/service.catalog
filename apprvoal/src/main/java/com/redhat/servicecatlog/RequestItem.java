@@ -5,28 +5,75 @@ package com.redhat.servicecatlog;
  */
 
 @javax.persistence.Entity
-public class RequestItem implements java.io.Serializable {
+public class RequestItem implements java.io.Serializable
+{
 
-    static final long serialVersionUID = 1L;
+   static final long serialVersionUID = 1L;
 
-    @javax.persistence.GeneratedValue(strategy = javax.persistence.GenerationType.AUTO, generator = "REQUESTITEM_ID_GENERATOR")
-    @javax.persistence.Id
-    @javax.persistence.SequenceGenerator(name = "REQUESTITEM_ID_GENERATOR", sequenceName = "REQUESTITEM_ID_SEQ")
-    private java.lang.Long id;
+   @javax.persistence.GeneratedValue(strategy = javax.persistence.GenerationType.AUTO, generator = "REQUESTITEM_ID_GENERATOR")
+   @javax.persistence.Id
+   @javax.persistence.SequenceGenerator(name = "REQUESTITEM_ID_GENERATOR", sequenceName = "REQUESTITEM_ID_SEQ")
+   private java.lang.Long id;
 
-    public RequestItem() {
-    }
-    
-    public RequestItem(java.lang.Long id) {
-        this.id = id;
-    }
+   @org.kie.api.definition.type.Label(value = "CPU")
+   private int cpu;
 
-    public java.lang.Long getId() {
-        return this.id;
-    }
-    
-    public void setId(java.lang.Long id) {
-        this.id = id;
-    }
+   @org.kie.api.definition.type.Label(value = "Memory")
+   private int memory;
+
+   @org.kie.api.definition.type.Label(value = "Disk")
+   private int disk;
+
+   public RequestItem()
+   {
+   }
+
+   public java.lang.Long getId()
+   {
+      return this.id;
+   }
+
+   public void setId(java.lang.Long id)
+   {
+      this.id = id;
+   }
+
+   public int getCpu()
+   {
+      return this.cpu;
+   }
+
+   public void setCpu(int cpu)
+   {
+      this.cpu = cpu;
+   }
+
+   public int getMemory()
+   {
+      return this.memory;
+   }
+
+   public void setMemory(int memory)
+   {
+      this.memory = memory;
+   }
+
+   public int getDisk()
+   {
+      return this.disk;
+   }
+
+   public void setDisk(int disk)
+   {
+      this.disk = disk;
+   }
+
+   public RequestItem(java.lang.Long id, int cpu, int memory, int disk)
+   {
+      this.id = id;
+      this.cpu = cpu;
+      this.memory = memory;
+      this.disk = disk;
+   }
 
 }
