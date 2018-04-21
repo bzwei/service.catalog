@@ -76,4 +76,8 @@ public class RequestItem implements java.io.Serializable
       this.disk = disk;
    }
 
+   public String toString()
+   {
+       return "" + cpu + " cpu, " + memory + "G memory, " + disk + "G disk";
+   }
 }
