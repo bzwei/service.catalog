@@ -53,7 +53,7 @@ public class Slacker implements java.io.Serializable
       this.slackChannel = slackChannel;
    }
 
-   public notifySlack()
+   public void notifySlack()
    {
 		requestId = catalog + java.util.UUID.randomUUID();
 		String title = String.format("\"%s want to order from catalog %s for %s.\"", requester, catalog, item);
@@ -99,7 +99,7 @@ public class Slacker implements java.io.Serializable
         conn.disconnect();
    }
 
-   public waitForApprove()
+   public void waitForApprove()
    {
         String pollAddress = "http://nodejs-ex-slackapproval.7e14.starter-us-west-2.openshiftapps.com/slack/approval";
         pollAddress += "?requestId=" + requestId;
