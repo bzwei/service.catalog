@@ -67,16 +67,6 @@ public class SlackClient implements java.io.Serializable
       this.approvalStatus = approvalStatus;
    }
 
-   public java.lang.String getApprovalID()
-   {
-      return this.approvalID;
-   }
-
-   public void setApprovalID(java.lang.String approvalID)
-   {
-      this.approvalID = approvalID;
-   }
-
    public SlackClient(java.lang.String slackAddress,
          java.lang.String slackChannel,
          com.redhat.servicecatlog.ServiceRequest serviceRequest,
