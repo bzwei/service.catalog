@@ -124,6 +124,40 @@ public class SlackClient implements java.io.Serializable
     }
     
     public void waitForAction() {
-        
+        String pollAddress = "http://nodejs-ex-slackapproval.7e14.starter-us-west-2.openshiftapps.com/slack/approval";
+        pollAddress += "?requestId=" + approvalId;
+        String url = new java.net.URL(pollAddress);
+        boolean finished = false;
+        for (int x = 0; x < 100; x++) {
+          java.net.HttpURLConnection conn = (java.net.HttpURLConnection) url.openConnection();
+          conn.setRequestMethod("GET");
+          int responseCode = conn.getResponseCode();
+          if (responseCode != java.net.HttpURLConnection.HTTP_OK) {
+        	    throw new RuntimeException("Failed to poll approval status from http server" + responseCode);
+          }
+          java.io.BufferedReader in = new java.io.BufferedReader(
+                  new java.io.InputStreamReader(conn.getInputStream()));
+          String inputLine;
+          StringBuffer response = new StringBuffer();
+          while ((inputLine = in.readLine()) != null) {
+          	response.append(inputLine);
+          }
+          in.close();
+          //print in String
+          System.out.println(response.toString());
+          //Read JSON response and print
+          org.json.JSONObject jsonResponse = new org.json.JSONObject(response.toString());
+          String probeApprovalStatus = jsonResponse.getString("approvalStatus");
+          if (probeApprovalStatus.equals("Denied") || probeApprovalStatus.equals("Approved")) {
+        	    System.out.println(slackChannel + " approval Status: " + probApprovalStatus);
+        	    finished = true;
+        	    approvalStatus = probeApprovalStatus;
+        	    break;
+          }
+          Thread.sleep(5000);
+        }
+        if (!finished) {
+        	  throw new RuntimeException("Timeout waiting for user approval");
+        }         
     }
 }
