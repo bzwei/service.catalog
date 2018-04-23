@@ -16,8 +16,11 @@ public class SlackClient implements java.io.Serializable
    @org.kie.api.definition.type.Label("Service Request")
    private com.redhat.servicecatlog.ServiceRequest serviceRequest;
 
-   @org.kie.api.definition.type.Label(value = "Approval Status")
+   @org.kie.api.definition.type.Label("Approval Status")
    private java.lang.String approvalStatus;
+
+   @org.kie.api.definition.type.Label(value = "Approval ID")
+   private java.lang.String approvalID;
 
    public SlackClient()
    {
@@ -64,15 +67,26 @@ public class SlackClient implements java.io.Serializable
       this.approvalStatus = approvalStatus;
    }
 
+   public java.lang.String getApprovalID()
+   {
+      return this.approvalID;
+   }
+
+   public void setApprovalID(java.lang.String approvalID)
+   {
+      this.approvalID = approvalID;
+   }
+
    public SlackClient(java.lang.String slackAddress,
          java.lang.String slackChannel,
          com.redhat.servicecatlog.ServiceRequest serviceRequest,
-         java.lang.String approvalStatus)
+         java.lang.String approvalStatus, java.lang.String approvalID)
    {
       this.slackAddress = slackAddress;
       this.slackChannel = slackChannel;
       this.serviceRequest = serviceRequest;
       this.approvalStatus = approvalStatus;
+      this.approvalID = approvalID;
    }
 
 }
