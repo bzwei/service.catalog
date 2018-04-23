@@ -78,4 +78,11 @@ public class SlackClient implements java.io.Serializable
       this.approvalStatus = approvalStatus;
    }
 
+    public void notifySlack() {
+        
+    }
+    
+    public void waitForAction() {
+        
+    }
 }
