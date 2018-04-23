@@ -9,12 +9,15 @@ public class SlackClient implements java.io.Serializable
 
    static final long serialVersionUID = 1L;
 
-   @org.kie.api.definition.type.Label(value = "Slack Web Hook URL")
+   @org.kie.api.definition.type.Label("Slack Web Hook URL")
    private java.lang.String slackAddress;
-   @org.kie.api.definition.type.Label(value = "Slack Channel or User")
+   @org.kie.api.definition.type.Label("Slack Channel or User")
    private java.lang.String slackChannel;
-   @org.kie.api.definition.type.Label(value = "Service Request")
+   @org.kie.api.definition.type.Label("Service Request")
    private com.redhat.servicecatlog.ServiceRequest serviceRequest;
+
+   @org.kie.api.definition.type.Label(value = "Approval Status")
+   private java.lang.String approvalStatus;
 
    public SlackClient()
    {
@@ -51,13 +54,25 @@ public class SlackClient implements java.io.Serializable
       this.serviceRequest = serviceRequest;
    }
 
+   public java.lang.String getApprovalStatus()
+   {
+      return this.approvalStatus;
+   }
+
+   public void setApprovalStatus(java.lang.String approvalStatus)
+   {
+      this.approvalStatus = approvalStatus;
+   }
+
    public SlackClient(java.lang.String slackAddress,
          java.lang.String slackChannel,
-         com.redhat.servicecatlog.ServiceRequest serviceRequest)
+         com.redhat.servicecatlog.ServiceRequest serviceRequest,
+         java.lang.String approvalStatus)
    {
       this.slackAddress = slackAddress;
       this.slackChannel = slackChannel;
       this.serviceRequest = serviceRequest;
+      this.approvalStatus = approvalStatus;
    }
 
 }
