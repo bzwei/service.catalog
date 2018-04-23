@@ -20,7 +20,7 @@ public class SlackClient implements java.io.Serializable
    private java.lang.String approvalStatus;
 
    @org.kie.api.definition.type.Label(value = "Approval ID")
-   private java.lang.String approvalID;
+   private java.lang.String approvalId;
 
    public SlackClient()
    {
@@ -78,9 +78,10 @@ public class SlackClient implements java.io.Serializable
       this.approvalStatus = approvalStatus;
    }
 
-    public void notifySlack() {
-		approvalId = catalog + java.util.UUID.randomUUID();
-		String title = String.format("\"%s want to order from catalog %s for %s.\"", requester, catalog, item);
+    public void notifySlack() throws Exception {
+		approvalId = serviceRequest.getServiceName() + java.util.UUID.randomUUID();
+		String title = String.format("\"%s want to order from catalog %s for %s.\"", 
+		    serviceRequest.getRequestor(), serviceRequest.getServiceName(), serviceRequest.getItem());
 		String body = String.join("\n"
 				, "{"
 				, "    \"text\": " + title + ","
@@ -123,10 +124,10 @@ public class SlackClient implements java.io.Serializable
         conn.disconnect();        
     }
     
-    public void waitForAction() {
+    public void waitForAction() throws Exception {
         String pollAddress = "http://nodejs-ex-slackapproval.7e14.starter-us-west-2.openshiftapps.com/slack/approval";
         pollAddress += "?requestId=" + approvalId;
-        String url = new java.net.URL(pollAddress);
+        java.net.URL url = new java.net.URL(pollAddress);
         boolean finished = false;
         for (int x = 0; x < 100; x++) {
           java.net.HttpURLConnection conn = (java.net.HttpURLConnection) url.openConnection();
@@ -149,7 +150,7 @@ public class SlackClient implements java.io.Serializable
           org.json.JSONObject jsonResponse = new org.json.JSONObject(response.toString());
           String probeApprovalStatus = jsonResponse.getString("approvalStatus");
           if (probeApprovalStatus.equals("Denied") || probeApprovalStatus.equals("Approved")) {
-        	    System.out.println(slackChannel + " approval Status: " + probApprovalStatus);
+        	    System.out.println(slackChannel + " approval Status: " + probeApprovalStatus);
         	    finished = true;
         	    approvalStatus = probeApprovalStatus;
         	    break;
