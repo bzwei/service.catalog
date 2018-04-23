@@ -70,13 +70,12 @@ public class SlackClient implements java.io.Serializable
    public SlackClient(java.lang.String slackAddress,
          java.lang.String slackChannel,
          com.redhat.servicecatlog.ServiceRequest serviceRequest,
-         java.lang.String approvalStatus, java.lang.String approvalID)
+         java.lang.String approvalStatus)
    {
       this.slackAddress = slackAddress;
       this.slackChannel = slackChannel;
       this.serviceRequest = serviceRequest;
       this.approvalStatus = approvalStatus;
-      this.approvalID = approvalID;
    }
 
 }
