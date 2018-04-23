@@ -79,7 +79,48 @@ public class SlackClient implements java.io.Serializable
    }
 
     public void notifySlack() {
-        
+		approvalId = catalog + java.util.UUID.randomUUID();
+		String title = String.format("\"%s want to order from catalog %s for %s.\"", requester, catalog, item);
+		String body = String.join("\n"
+				, "{"
+				, "    \"text\": " + title + ","
+				, "    \"attachments\":[{"
+				, "        \"text\": \"Do you want to approve the request?\","
+				, "        \"fallback\": \"Shame... buttons aren't supported in this land\","
+				, "        \"callback_id\": \"" + approvalId + "\","
+				, "        \"color\": \"#3AA3E3\","
+				, "        \"attachment_type\": \"default\","
+				, "        \"actions\": ["
+				, "        {"
+				, "            \"name\": \"yes\","
+				, "            \"text\": \"Approve\","
+				, "            \"type\": \"button\","
+				, "            \"value\": \"yes\""
+				, "        },"
+				, "        {"
+				, "            \"name\": \"no\","
+				, "            \"text\": \"Deny\","
+				, "            \"type\": \"button\","
+				, "            \"value\": \"no\""
+				, "        }]"
+				, "    }]"
+				, "}"
+		);
+		
+		java.net.URL url = new java.net.URL(slackAddress);
+		java.net.HttpURLConnection conn = (java.net.HttpURLConnection)url.openConnection();
+		conn.setDoOutput(true);
+		conn.setRequestMethod("POST");
+		conn.setRequestProperty("Content-Type", "application/json");
+		java.io.OutputStream os = conn.getOutputStream();
+		os.write(body.getBytes());
+		os.flush();
+		
+		int responseCode = conn.getResponseCode();
+        if (responseCode!= java.net.HttpURLConnection.HTTP_OK) {
+            throw new RuntimeException("Failed to send message to slack : " + responseCode);
+        }
+        conn.disconnect();        
     }
     
     public void waitForAction() {
