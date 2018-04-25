@@ -10,74 +10,230 @@ public class RequestItem implements java.io.Serializable
 
    static final long serialVersionUID = 1L;
 
-   @javax.persistence.GeneratedValue(strategy = javax.persistence.GenerationType.AUTO, generator = "REQUESTITEM_ID_GENERATOR")
-   @javax.persistence.Id
-   @javax.persistence.SequenceGenerator(name = "REQUESTITEM_ID_GENERATOR", sequenceName = "REQUESTITEM_ID_SEQ")
-   private java.lang.Long id;
+   @org.kie.api.definition.type.Label(value = "Allocated CPUs")
+   private int allocatedCpus;
 
-   @org.kie.api.definition.type.Label(value = "CPU")
-   private int cpu;
+   @org.kie.api.definition.type.Label(value = "Allocated VMs")
+   private int allocatedVms;
 
-   @org.kie.api.definition.type.Label(value = "Memory")
-   private int memory;
+   @org.kie.api.definition.type.Label(value = "Allocated Memories in GB")
+   private int allocatedMemories;
 
-   @org.kie.api.definition.type.Label(value = "Disk")
-   private int disk;
+   @org.kie.api.definition.type.Label(value = "Allocated Budget")
+   private double allocatedBudget;
+
+   @org.kie.api.definition.type.Label(value = "Used CPUs")
+   private int usedCpus;
+
+   @org.kie.api.definition.type.Label(value = "Allocated Storage in GB")
+   private int allocatedStorages;
+
+   @org.kie.api.definition.type.Label(value = "Used VMs")
+   private int usedVms;
+
+   @org.kie.api.definition.type.Label(value = "Used Memories in GB")
+   private int usedMemories;
+
+   @org.kie.api.definition.type.Label(value = "Used Storage in GB")
+   private int usedStorages;
+
+   @org.kie.api.definition.type.Label(value = "Used Budget")
+   private double usedBudget;
+
+   @org.kie.api.definition.type.Label(value = "Requested CPUs")
+   private int requestedCpus;
+
+   @org.kie.api.definition.type.Label(value = "Requested VMs")
+   private int requestedVms;
+
+   @org.kie.api.definition.type.Label(value = "Requested Memory in GB")
+   private int requestedMemories;
+
+   @org.kie.api.definition.type.Label(value = "Requested Storage in GB")
+   private int requestedStorages;
+
+   @org.kie.api.definition.type.Label(value = "Requested Budget")
+   private double requestedBudget;
 
    public RequestItem()
    {
    }
 
-   public java.lang.Long getId()
-   {
-      return this.id;
-   }
-
-   public void setId(java.lang.Long id)
-   {
-      this.id = id;
-   }
-
-   public int getCpu()
-   {
-      return this.cpu;
-   }
-
-   public void setCpu(int cpu)
-   {
-      this.cpu = cpu;
-   }
-
-   public int getMemory()
-   {
-      return this.memory;
-   }
-
-   public void setMemory(int memory)
-   {
-      this.memory = memory;
-   }
-
-   public int getDisk()
-   {
-      return this.disk;
-   }
-
-   public void setDisk(int disk)
-   {
-      this.disk = disk;
-   }
-
-   public RequestItem(java.lang.Long id, int cpu, int memory, int disk)
-   {
-      this.id = id;
-      this.cpu = cpu;
-      this.memory = memory;
-      this.disk = disk;
-   }
-
    public String toString()
    {
-       return "" + cpu + " cpu, " + memory + "G memory, " + disk + "G disk";
+      return "" + cpu + " cpu, " + memory + "G memory, " + disk + "G disk";
+   }
+
+   public int getAllocatedCpus()
+   {
+      return this.allocatedCpus;
+   }
+
+   public void setAllocatedCpus(int allocatedCpus)
+   {
+      this.allocatedCpus = allocatedCpus;
+   }
+
+   public int getAllocatedVms()
+   {
+      return this.allocatedVms;
+   }
+
+   public void setAllocatedVms(int allocatedVms)
+   {
+      this.allocatedVms = allocatedVms;
+   }
+
+   public int getAllocatedMemories()
+   {
+      return this.allocatedMemories;
+   }
+
+   public void setAllocatedMemories(int allocatedMemories)
+   {
+      this.allocatedMemories = allocatedMemories;
+   }
+
+   public double getAllocatedBudget()
+   {
+      return this.allocatedBudget;
+   }
+
+   public void setAllocatedBudget(double allocatedBudget)
+   {
+      this.allocatedBudget = allocatedBudget;
+   }
+
+   public int getUsedCpus()
+   {
+      return this.usedCpus;
+   }
+
+   public void setUsedCpus(int usedCpus)
+   {
+      this.usedCpus = usedCpus;
+   }
+
+   public int getAllocatedStorages()
+   {
+      return this.allocatedStorages;
+   }
+
+   public void setAllocatedStorages(int allocatedStorages)
+   {
+      this.allocatedStorages = allocatedStorages;
+   }
+
+   public int getUsedVms()
+   {
+      return this.usedVms;
+   }
+
+   public void setUsedVms(int usedVms)
+   {
+      this.usedVms = usedVms;
+   }
+
+   public int getUsedMemories()
+   {
+      return this.usedMemories;
+   }
+
+   public void setUsedMemories(int usedMemories)
+   {
+      this.usedMemories = usedMemories;
+   }
+
+   public int getUsedStorages()
+   {
+      return this.usedStorages;
+   }
+
+   public void setUsedStorages(int usedStorages)
+   {
+      this.usedStorages = usedStorages;
+   }
+
+   public double getUsedBudget()
+   {
+      return this.usedBudget;
+   }
+
+   public void setUsedBudget(double usedBudget)
+   {
+      this.usedBudget = usedBudget;
+   }
+
+   public int getRequestedCpus()
+   {
+      return this.requestedCpus;
+   }
+
+   public void setRequestedCpus(int requestedCpus)
+   {
+      this.requestedCpus = requestedCpus;
+   }
+
+   public int getRequestedVms()
+   {
+      return this.requestedVms;
+   }
+
+   public void setRequestedVms(int requestedVms)
+   {
+      this.requestedVms = requestedVms;
+   }
+
+   public int getRequestedMemories()
+   {
+      return this.requestedMemories;
+   }
+
+   public void setRequestedMemories(int requestedMemories)
+   {
+      this.requestedMemories = requestedMemories;
+   }
+
+   public int getRequestedStorages()
+   {
+      return this.requestedStorages;
+   }
+
+   public void setRequestedStorages(int requestedStorages)
+   {
+      this.requestedStorages = requestedStorages;
+   }
+
+   public double getRequestedBudget()
+   {
+      return this.requestedBudget;
+   }
+
+   public void setRequestedBudget(double requestedBudget)
+   {
+      this.requestedBudget = requestedBudget;
+   }
+
+   public RequestItem(int allocatedCpus, int allocatedVms, int allocatedMemories,
+         double allocatedBudget, int usedCpus, int allocatedStorages,
+         int usedVms, int usedMemories, int usedStorages, double usedBudget,
+         int requestedCpus, int requestedVms, int requestedMemories,
+         int requestedStorages, double requestedBudget)
+   {
+      this.allocatedCpus = allocatedCpus;
+      this.allocatedVms = allocatedVms;
+      this.allocatedMemories = allocatedMemories;
+      this.allocatedBudget = allocatedBudget;
+      this.usedCpus = usedCpus;
+      this.allocatedStorages = allocatedStorages;
+      this.usedVms = usedVms;
+      this.usedMemories = usedMemories;
+      this.usedStorages = usedStorages;
+      this.usedBudget = usedBudget;
+      this.requestedCpus = requestedCpus;
+      this.requestedVms = requestedVms;
+      this.requestedMemories = requestedMemories;
+      this.requestedStorages = requestedStorages;
+      this.requestedBudget = requestedBudget;
    }
 }
