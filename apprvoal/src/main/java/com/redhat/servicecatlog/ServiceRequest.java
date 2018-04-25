@@ -35,9 +35,9 @@ public class ServiceRequest implements java.io.Serializable
    {
    }
 
-   public java.lang.String getRequestor()
+   public java.lang.String getRequester()
    {
-      return this.requestor;
+      return this.requester;
    }
 
    public void setRequester(java.lang.String requester)
