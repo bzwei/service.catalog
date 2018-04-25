@@ -61,7 +61,8 @@ public class RequestItem implements java.io.Serializable
 
    public String toString()
    {
-      return "" + cpu + " cpu, " + memory + "G memory, " + disk + "G disk";
+	  String cost = java.text.NumberFormat.getCurrencyInstance().format(requestedBudget);
+	  return "" + requestedCpus + " cpu, " + requestedMemories + "G memory, " + requestedStorages + "G disk, cost " + cost;		   
    }
 
    public int getAllocatedCpus()
@@ -215,7 +216,7 @@ public class RequestItem implements java.io.Serializable
    }
 
    public RequestItem(int allocatedCpus, int allocatedVms, int allocatedMemories,
-         double allocatedBudget, int usedCpus, int allocatedStorages,
+         double allocatedBudget, int allocatedStorages, int usedCpus, 
          int usedVms, int usedMemories, int usedStorages, double usedBudget,
          int requestedCpus, int requestedVms, int requestedMemories,
          int requestedStorages, double requestedBudget)
