@@ -10,8 +10,8 @@ public class ServiceRequest implements java.io.Serializable
 
    static final long serialVersionUID = 1L;
 
-   @org.kie.api.definition.type.Label("Requestor")
-   private java.lang.String requestor;
+   @org.kie.api.definition.type.Label("Requester")
+   private java.lang.String requester;
    
    @org.kie.api.definition.type.Label("Request Item")
    private com.redhat.servicecatlog.RequestItem item;
@@ -40,9 +40,9 @@ public class ServiceRequest implements java.io.Serializable
       return this.requestor;
    }
 
-   public void setRequestor(java.lang.String requestor)
+   public void setRequester(java.lang.String requester)
    {
-      this.requestor = requestor;
+      this.requester = requester;
    }
 
    public com.redhat.servicecatlog.RequestItem getItem()
@@ -105,13 +105,13 @@ public class ServiceRequest implements java.io.Serializable
       this.approvalMethod = approvalMethod;
    }
 
-   public ServiceRequest(java.lang.String requestor,
+   public ServiceRequest(java.lang.String requester,
          com.redhat.servicecatlog.RequestItem item,
          java.lang.String serviceName, java.lang.String userLabel,
          java.lang.String projectLabel, java.lang.String serviceLabel,
          java.lang.String approvalMethod)
    {
-      this.requestor = requestor;
+      this.requester = requester;
       this.item = item;
       this.serviceName = serviceName;
       this.userLabel = userLabel;
