@@ -80,8 +80,8 @@ public class SlackClient implements java.io.Serializable
 
     public void notifySlack() throws Exception {
 		approvalId = serviceRequest.getServiceName() + java.util.UUID.randomUUID();
-		String title = String.format("\"%s want to order from catalog %s for %s.\"", 
-		    serviceRequest.getRequestor(), serviceRequest.getServiceName(), serviceRequest.getItem());
+		String title = String.format("\"%s wants to order from catalog %s for %s.\"", 
+		    serviceRequest.getRequester(), serviceRequest.getServiceName(), serviceRequest.getItem());
 		String body = String.join("\n"
 				, "{"
 				, "    \"text\": " + title + ","
