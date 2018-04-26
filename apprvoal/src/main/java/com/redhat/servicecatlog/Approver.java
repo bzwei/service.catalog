@@ -9,12 +9,18 @@ public class Approver implements java.io.Serializable
 
    static final long serialVersionUID = 1L;
 
-   @org.kie.api.definition.type.Label(value = "Slack URL")
+   @org.kie.api.definition.type.Label("Slack URL")
    private java.lang.String slackAddress;
-   @org.kie.api.definition.type.Label(value = "Name of Approver")
+   @org.kie.api.definition.type.Label("Name of Approver")
    private java.lang.String name;
-   @org.kie.api.definition.type.Label(value = "Approval Status")
+   @org.kie.api.definition.type.Label("Approval Status")
    private java.lang.String status;
+
+   @org.kie.api.definition.type.Label(value = "When it is notified")
+   private java.lang.String notifyTime;
+
+   @org.kie.api.definition.type.Label(value = "When it is approved")
+   private java.lang.String actionTime;
 
    public Approver()
    {
@@ -50,12 +56,43 @@ public class Approver implements java.io.Serializable
       this.status = status;
    }
 
-   public Approver(java.lang.String name, java.lang.String slackAddress, 
+   public Approver(java.lang.String name, java.lang.String slackAddress,
          java.lang.String status)
    {
       this.slackAddress = slackAddress;
       this.name = name;
       this.status = status;
+   }
+
+   public java.lang.String getNotifyTime()
+   {
+      return this.notifyTime;
+   }
+
+   public void setNotifyTime(java.lang.String notifyTime)
+   {
+      this.notifyTime = notifyTime;
+   }
+
+   public java.lang.String getActionTime()
+   {
+      return this.actionTime;
+   }
+
+   public void setActionTime(java.lang.String actionTime)
+   {
+      this.actionTime = actionTime;
+   }
+
+   public Approver(java.lang.String slackAddress, java.lang.String name,
+         java.lang.String status, java.lang.String notifyTime,
+         java.lang.String actionTime)
+   {
+      this.slackAddress = slackAddress;
+      this.name = name;
+      this.status = status;
+      this.notifyTime = notifyTime;
+      this.actionTime = actionTime;
    }
 
 }
