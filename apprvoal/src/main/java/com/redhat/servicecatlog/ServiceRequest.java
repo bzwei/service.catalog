@@ -31,6 +31,12 @@ public class ServiceRequest implements java.io.Serializable
    @org.kie.api.definition.type.Label(value = "Approval Method")
    private java.lang.String approvalMethod;
 
+   @org.kie.api.definition.type.Label("List of Approvers")
+   private java.util.List<com.redhat.servicecatlog.Approver> approvers;
+
+   @org.kie.api.definition.type.Label(value = "Indicate Active Approver")
+   private int activeIndex;
+   
    public ServiceRequest()
    {
    }
