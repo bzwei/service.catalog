@@ -109,23 +109,6 @@ public class ServiceRequest implements java.io.Serializable
          com.redhat.servicecatlog.RequestItem item,
          java.lang.String serviceName, java.lang.String userLabel,
          java.lang.String projectLabel, java.lang.String serviceLabel,
-         java.lang.String approvalMethod,
-         java.lang.String approvalStatus)
-   {
-      this.requester = requester;
-      this.item = item;
-      this.serviceName = serviceName;
-      this.userLabel = userLabel;
-      this.projectLabel = projectLabel;
-      this.serviceLabel = serviceLabel;
-      this.approvalMethod = approvalMethod;
-      this.approvalStatus = approvalStatus;
-   }
-
-   public ServiceRequest(java.lang.String requester,
-         com.redhat.servicecatlog.RequestItem item,
-         java.lang.String serviceName, java.lang.String userLabel,
-         java.lang.String projectLabel, java.lang.String serviceLabel,
          java.lang.String approvalMethod)
    {
       this.requester = requester;
