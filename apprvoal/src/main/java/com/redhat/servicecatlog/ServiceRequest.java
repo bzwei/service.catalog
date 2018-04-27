@@ -12,7 +12,7 @@ public class ServiceRequest implements java.io.Serializable
 
    @org.kie.api.definition.type.Label("Requester")
    private java.lang.String requester;
-   
+
    @org.kie.api.definition.type.Label("Request Item")
    private com.redhat.servicecatlog.RequestItem item;
 
@@ -28,18 +28,9 @@ public class ServiceRequest implements java.io.Serializable
    @org.kie.api.definition.type.Label("Service Item Approval Label")
    private java.lang.String serviceLabel;
 
-   @org.kie.api.definition.type.Label(value = "Approval Method")
+   @org.kie.api.definition.type.Label("Approval Method")
    private java.lang.String approvalMethod;
 
-   @org.kie.api.definition.type.Label("List of Approvers")
-   private java.util.List<com.redhat.servicecatlog.Approver> approvers;
-
-   @org.kie.api.definition.type.Label(value = "Indicate Active Approver")
-   private int activeIndex;
-   
-   @org.kie.api.definition.type.Label(value = "Final Approval Status")
-   private java.lang.String approvalStatus;
-   
    public ServiceRequest()
    {
    }
@@ -129,6 +120,21 @@ public class ServiceRequest implements java.io.Serializable
       this.serviceLabel = serviceLabel;
       this.approvalMethod = approvalMethod;
       this.approvalStatus = approvalStatus;
+   }
+
+   public ServiceRequest(java.lang.String requester,
+         com.redhat.servicecatlog.RequestItem item,
+         java.lang.String serviceName, java.lang.String userLabel,
+         java.lang.String projectLabel, java.lang.String serviceLabel,
+         java.lang.String approvalMethod)
+   {
+      this.requester = requester;
+      this.item = item;
+      this.serviceName = serviceName;
+      this.userLabel = userLabel;
+      this.projectLabel = projectLabel;
+      this.serviceLabel = serviceLabel;
+      this.approvalMethod = approvalMethod;
    }
 
 }
