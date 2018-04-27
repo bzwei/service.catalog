@@ -169,6 +169,7 @@ public class Approver implements java.io.Serializable
          if (probeApprovalStatus.equals("Denied") || probeApprovalStatus.equals("Approved")) {
        	    System.out.println(this.name + " action: " + probeApprovalStatus);
        	    finished = true;
+       	    this.actionTime = java.time.ZonedDateTime.now(java.time.ZoneOffset.UTC).format(java.time.format.DateTimeFormatter.ISO_INSTANT);
        	    this.status = probeApprovalStatus;
        	    break;
          }
