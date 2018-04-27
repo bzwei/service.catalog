@@ -31,6 +31,15 @@ public class ServiceRequest implements java.io.Serializable
    @org.kie.api.definition.type.Label("Approval Method")
    private java.lang.String approvalMethod;
 
+   @org.kie.api.definition.type.Label(value = "Final Approval Status")
+   private java.lang.String approvalStatus;
+
+   @org.kie.api.definition.type.Label(value = "List of Approvers")
+   private java.util.List<com.redhat.servicecatlog.Approver> approvers;
+
+   @org.kie.api.definition.type.Label(value = "Indicates current approver")
+   private int activeIndex;
+
    public ServiceRequest()
    {
    }
@@ -105,11 +114,44 @@ public class ServiceRequest implements java.io.Serializable
       this.approvalMethod = approvalMethod;
    }
 
+   public java.lang.String getApprovalStatus()
+   {
+      return this.approvalStatus;
+   }
+
+   public void setApprovalStatus(java.lang.String approvalStatus)
+   {
+      this.approvalStatus = approvalStatus;
+   }
+
+   public java.util.List<com.redhat.servicecatlog.Approver> getApprovers()
+   {
+      return this.approvers;
+   }
+
+   public void setApprovers(
+         java.util.List<com.redhat.servicecatlog.Approver> approvers)
+   {
+      this.approvers = approvers;
+   }
+
+   public int getActiveIndex()
+   {
+      return this.activeIndex;
+   }
+
+   public void setActiveIndex(int activeIndex)
+   {
+      this.activeIndex = activeIndex;
+   }
+
    public ServiceRequest(java.lang.String requester,
          com.redhat.servicecatlog.RequestItem item,
          java.lang.String serviceName, java.lang.String userLabel,
          java.lang.String projectLabel, java.lang.String serviceLabel,
-         java.lang.String approvalMethod)
+         java.lang.String approvalMethod, java.lang.String approvalStatus,
+         java.util.List<com.redhat.servicecatlog.Approver> approvers,
+         int activeIndex)
    {
       this.requester = requester;
       this.item = item;
@@ -118,6 +160,9 @@ public class ServiceRequest implements java.io.Serializable
       this.projectLabel = projectLabel;
       this.serviceLabel = serviceLabel;
       this.approvalMethod = approvalMethod;
+      this.approvalStatus = approvalStatus;
+      this.approvers = approvers;
+      this.activeIndex = activeIndex;
    }
 
 }
