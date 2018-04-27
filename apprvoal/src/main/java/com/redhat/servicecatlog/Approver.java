@@ -27,6 +27,97 @@ public class Approver implements java.io.Serializable
    public Approver()
    {
    }
+   
+   public void notifySlack(String requester, String serviceName, String description) throws Exception
+   {
+		this.approvalId = serviceName + java.util.UUID.randomUUID();
+		String title = String.format("\"%s want to order from catalog %s for %s.\"", 
+				requester, serviceName, description);
+		String body = String.join("\n"
+				, "{"
+				, "    \"text\": " + title + ","
+				, "    \"attachments\":[{"
+				, "        \"text\": \"Do you want to approve the request?\","
+				, "        \"fallback\": \"Shame... buttons aren't supported in this land\","
+				, "        \"callback_id\": \"" + approvalId + "\","
+				, "        \"color\": \"#3AA3E3\","
+				, "        \"attachment_type\": \"default\","
+				, "        \"actions\": ["
+				, "        {"
+				, "            \"name\": \"yes\","
+				, "            \"text\": \"Approve\","
+				, "            \"type\": \"button\","
+				, "            \"value\": \"yes\""
+				, "        },"
+				, "        {"
+				, "            \"name\": \"no\","
+				, "            \"text\": \"Deny\","
+				, "            \"type\": \"button\","
+				, "            \"value\": \"no\""
+				, "        }]"
+				, "    }]"
+				, "}"
+		);
+		
+		java.net.URL url = new java.net.URL(slackAddress);
+		java.net.HttpURLConnection conn = (java.net.HttpURLConnection)url.openConnection();
+		conn.setDoOutput(true);
+		conn.setRequestMethod("POST");
+		conn.setRequestProperty("Content-Type", "application/json");
+		java.io.OutputStream os = conn.getOutputStream();
+		os.write(body.getBytes());
+		os.flush();
+		
+		int responseCode = conn.getResponseCode();
+        if (responseCode!= java.net.HttpURLConnection.HTTP_OK) {
+          throw new RuntimeException("Failed to send message to slack : " + responseCode);
+        }
+        conn.disconnect();
+        this.status = "Notified";
+        this.notifyTime = java.time.ZonedDateTime.now(java.time.ZoneOffset.UTC).format(java.time.format.DateTimeFormatter.ISO_INSTANT);
+   }
+   
+   public void waitForAction(String pollAddress) throws Exception
+   {
+	   if (pollAddress == null) {
+         pollAddress = "http://nodejs-ex-slackapproval.7e14.starter-us-west-2.openshiftapps.com/slack/approval";
+	   }
+       pollAddress += "?requestId=" + approvalId;
+       java.net.URL url = new java.net.URL(pollAddress);
+       boolean finished = false;
+       for (int x = 0; x < 100; x++) {
+         java.net.HttpURLConnection conn = (java.net.HttpURLConnection) url.openConnection();
+         conn.setRequestMethod("GET");
+         int responseCode = conn.getResponseCode();
+         if (responseCode != java.net.HttpURLConnection.HTTP_OK) {
+       	    throw new RuntimeException("Failed to poll approval status from http server" + responseCode);
+         }
+         java.io.BufferedReader in = new java.io.BufferedReader(
+                 new java.io.InputStreamReader(conn.getInputStream()));
+         String inputLine;
+         StringBuffer response = new StringBuffer();
+         while ((inputLine = in.readLine()) != null) {
+         	response.append(inputLine);
+         }
+         in.close();
+         //print in String
+         System.out.println(response.toString());
+         //Read JSON response and print
+         org.json.JSONObject jsonResponse = new org.json.JSONObject(response.toString());
+         String probeApprovalStatus = jsonResponse.getString("approvalStatus");
+         if (probeApprovalStatus.equals("Denied") || probeApprovalStatus.equals("Approved")) {
+       	    System.out.println(this.name + " action: " + probeApprovalStatus);
+       	    finished = true;
+       	    this.actionTime = java.time.ZonedDateTime.now(java.time.ZoneOffset.UTC).format(java.time.format.DateTimeFormatter.ISO_INSTANT);
+       	    this.status = probeApprovalStatus;
+       	    break;
+         }
+         Thread.sleep(5000);
+       }
+       if (!finished) {
+       	  throw new RuntimeException("Timeout waiting for user approval");
+       } 
+   }
 
    public java.lang.String getSlackAddress()
    {
