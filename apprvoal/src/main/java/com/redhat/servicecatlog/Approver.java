@@ -89,11 +89,11 @@ public class Approver implements java.io.Serializable
       this.actionTime = actionTime;
    }
 
-   public void notifySlack(com.redhat.servicecatlog.ServiceRequest request) throws Exception
+   public void notifySlack(String requester, String serviceName, String description) throws Exception
    {
-		this.approvalId = request.getServiceName() + java.util.UUID.randomUUID();
+		this.approvalId = serviceName + java.util.UUID.randomUUID();
 		String title = String.format("\"%s want to order from catalog %s for %s.\"", 
-				request.getRequester(), request.getServiceName(), request.getItem());
+				requester, serviceName, description);
 		String body = String.join("\n"
 				, "{"
 				, "    \"text\": " + title + ","
