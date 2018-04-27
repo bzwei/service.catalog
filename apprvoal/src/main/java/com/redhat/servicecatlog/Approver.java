@@ -58,14 +58,6 @@ public class Approver implements java.io.Serializable
       this.status = status;
    }
 
-   public Approver(java.lang.String name, java.lang.String slackAddress,
-         java.lang.String status)
-   {
-      this.slackAddress = slackAddress;
-      this.name = name;
-      this.status = status;
-   }
-
    public java.lang.String getNotifyTime()
    {
       return this.notifyTime;
