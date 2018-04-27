@@ -37,6 +37,9 @@ public class ServiceRequest implements java.io.Serializable
    @org.kie.api.definition.type.Label(value = "Indicate Active Approver")
    private int activeIndex;
    
+   @org.kie.api.definition.type.Label(value = "Final Approval Status")
+   private java.lang.String approvalStatus;
+   
    public ServiceRequest()
    {
    }
@@ -115,7 +118,8 @@ public class ServiceRequest implements java.io.Serializable
          com.redhat.servicecatlog.RequestItem item,
          java.lang.String serviceName, java.lang.String userLabel,
          java.lang.String projectLabel, java.lang.String serviceLabel,
-         java.lang.String approvalMethod)
+         java.lang.String approvalMethod,
+         java.lang.String approvalStatus)
    {
       this.requester = requester;
       this.item = item;
@@ -124,6 +128,7 @@ public class ServiceRequest implements java.io.Serializable
       this.projectLabel = projectLabel;
       this.serviceLabel = serviceLabel;
       this.approvalMethod = approvalMethod;
+      this.approvalStatus = approvalStatus;
    }
 
 }
