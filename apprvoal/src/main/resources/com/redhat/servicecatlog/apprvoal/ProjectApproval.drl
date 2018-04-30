@@ -1,2 +1,14 @@
 package com.redhat.servicecatlog.apprvoal;
 
+import com.redhat.servicecatlog.RequestItem;
+import com.redhat.servicecatlog.ServiceRequest;
+
+rule "ProjectApproval"
+  ruleflow-group "approval_group"
+  when
+    request : ServiceRequest(projectLabel=="Requires-Approval")
+  then
+    modify(request) {setApprovalMethod("Manual")};
+    System.out.println("fired rule " + kcontext.getRule().getName());
+end
+
