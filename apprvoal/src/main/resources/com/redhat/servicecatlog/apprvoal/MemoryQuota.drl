@@ -1,2 +1,15 @@
 package com.redhat.servicecatlog.apprvoal;
 
+import com.redhat.servicecatlog.RequestItem;
+import com.redhat.servicecatlog.ServiceRequest;
+
+rule "MemoryQuota"
+  ruleflow-group "quota_group"
+  when
+    request : ServiceRequest(getItem().getRequestedMemories() + getItem().getUsedMemories() > getItem().getAllocatedMemories())
+  then
+    modify(request) {setApprovalMethod("Manual")};
+    System.out.println("fired rule " + kcontext.getRule().getName());
+end
+
+
