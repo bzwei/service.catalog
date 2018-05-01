@@ -31,7 +31,7 @@ public class Approver implements java.io.Serializable
    public void notifySlack(String requester, String serviceName, String description) throws Exception
    {
 		this.approvalId = serviceName + java.util.UUID.randomUUID();
-		String title = String.format("\"%s want to order from catalog %s for %s.\"", 
+		String title = String.format("\"%s wants to order from catalog %s for %s.\"", 
 				requester, serviceName, description);
 		String body = String.join("\n"
 				, "{"
