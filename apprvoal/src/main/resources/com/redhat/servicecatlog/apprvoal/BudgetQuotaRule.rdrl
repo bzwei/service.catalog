@@ -1,0 +1,9 @@
+package com.redhat.servicecatlog.apprvoal;
+
+import java.lang.Number;
+
+rule "BudgetQuotaRule"
+	dialect "mvel"
+	when
+	then
+end
