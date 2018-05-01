@@ -8,7 +8,7 @@ rule "CpuQuota"
   when
     request : ServiceRequest(item.requestedCpus + item.usedCpus > item.allocatedCpus)
   then
-    request.setQuotaStatus("Failed")};
+    request.setQuotaStatus("Failed");
     System.out.println("fired rule " + kcontext.getRule().getName());
 end
 
