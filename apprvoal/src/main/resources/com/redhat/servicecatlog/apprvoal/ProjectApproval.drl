@@ -8,7 +8,7 @@ rule "ProjectApproval"
   when
     request : ServiceRequest(projectLabel=="Requires-Approval")
   then
-    modify(request) {setApprovalMethod("Manual")};
+    request.setApprovalMethod("Manual");
     System.out.println("fired rule " + kcontext.getRule().getName());
 end
 
