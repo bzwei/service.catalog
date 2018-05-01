@@ -8,7 +8,7 @@ rule "MemoryQuota"
   when
     request : ServiceRequest(getItem().getRequestedMemories() + getItem().getUsedMemories() > getItem().getAllocatedMemories())
   then
-    modify(request) {setApprovalMethod("Manual")};
+    modify(request) {setQuotaStatus("Failed")};
     System.out.println("fired rule " + kcontext.getRule().getName());
 end
 
