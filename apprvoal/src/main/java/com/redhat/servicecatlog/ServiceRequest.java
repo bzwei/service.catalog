@@ -31,14 +31,17 @@ public class ServiceRequest implements java.io.Serializable
    @org.kie.api.definition.type.Label("Approval Method")
    private java.lang.String approvalMethod;
 
-   @org.kie.api.definition.type.Label(value = "Final Approval Status")
+   @org.kie.api.definition.type.Label("Final Approval Status")
    private java.lang.String approvalStatus;
 
-   @org.kie.api.definition.type.Label(value = "List of Approvers")
+   @org.kie.api.definition.type.Label("List of Approvers")
    private java.util.List<com.redhat.servicecatlog.Approver> approvers;
 
-   @org.kie.api.definition.type.Label(value = "Indicates current approver")
+   @org.kie.api.definition.type.Label("Indicates current approver")
    private int activeIndex;
+
+   @org.kie.api.definition.type.Label(value = "Quota Status")
+   private java.lang.String quotaStatus;
 
    public ServiceRequest()
    {
@@ -145,13 +148,23 @@ public class ServiceRequest implements java.io.Serializable
       this.activeIndex = activeIndex;
    }
 
+   public java.lang.String getQuotaStatus()
+   {
+      return this.quotaStatus;
+   }
+
+   public void setQuotaStatus(java.lang.String quotaStatus)
+   {
+      this.quotaStatus = quotaStatus;
+   }
+
    public ServiceRequest(java.lang.String requester,
          com.redhat.servicecatlog.RequestItem item,
          java.lang.String serviceName, java.lang.String userLabel,
          java.lang.String projectLabel, java.lang.String serviceLabel,
          java.lang.String approvalMethod, java.lang.String approvalStatus,
          java.util.List<com.redhat.servicecatlog.Approver> approvers,
-         int activeIndex)
+         int activeIndex, java.lang.String quotaStatus)
    {
       this.requester = requester;
       this.item = item;
@@ -163,6 +176,7 @@ public class ServiceRequest implements java.io.Serializable
       this.approvalStatus = approvalStatus;
       this.approvers = approvers;
       this.activeIndex = activeIndex;
+      this.quotaStatus = quotaStatus;
    }
 
 }
