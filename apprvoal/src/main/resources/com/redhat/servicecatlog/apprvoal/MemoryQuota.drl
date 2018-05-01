@@ -6,9 +6,9 @@ import com.redhat.servicecatlog.ServiceRequest;
 rule "MemoryQuota"
   ruleflow-group "quota_group"
   when
-    request : ServiceRequest(getItem().getRequestedMemories() + getItem().getUsedMemories() > getItem().getAllocatedMemories())
+    request : ServiceRequest(item.requestedMemories + item.usedMemories > item.allocatedMemories)
   then
-    modify(request) {setQuotaStatus("Failed")};
+    request.setQuotaStatus("Failed");
     System.out.println("fired rule " + kcontext.getRule().getName());
 end
 
