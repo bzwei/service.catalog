@@ -6,9 +6,9 @@ import com.redhat.servicecatlog.ServiceRequest;
 rule "VmQuota"
   ruleflow-group "quota_group"
   when
-    request : ServiceRequest(getItem().getRequestedVms() + getItem().getUsedVms() > getItem().getAllocatedVms())
+    request : ServiceRequest(item.requestedVms + item.usedVms > item.allocatedVms)
   then
-    modify(request) {setQuotaStatus("Failed")};
+    request.setQuotaStatus("Failed");
     System.out.println("fired rule " + kcontext.getRule().getName());
 end
 
