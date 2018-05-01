@@ -1,9 +1,13 @@
 package com.redhat.servicecatlog.apprvoal;
 
 import java.lang.Number;
+import com.redhat.servicecatlog.ServiceRequest;
+import com.redhat.servicecatlog.RequestItem;
 
 rule "BudgetQuotaRule"
 	dialect "mvel"
 	when
+		request : ServiceRequest( eval( item.requestedBudget + item.usedBudget > item.allocatedBudget ))
 	then
+		request.setQuotaStatus( "Failed" );
 end
