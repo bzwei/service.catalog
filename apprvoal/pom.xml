@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.redhat.servicecatlog</groupId>
   <artifactId>approval</artifactId>
-  <version>1.0.32</version>
+  <version>1.0.33</version>
   <packaging>kjar</packaging>
   <name>approval</name>
   <description>service request approval</description>
