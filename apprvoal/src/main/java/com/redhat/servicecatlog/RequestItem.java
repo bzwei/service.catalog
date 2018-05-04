@@ -61,7 +61,7 @@ public class RequestItem implements java.io.Serializable
    {
 	  String cost = java.text.NumberFormat.getCurrencyInstance().format(requestedBudget);
 	  return String.format("%d vm, %d cpu, %dG memory, %dG storage, cost %s",
-	    requestedVms, requestedCpus, requestedMemories, requestedStorages, requestedBudget);
+	    requestedVms, requestedCpus, requestedMemories, requestedStorages, cost);
    }
 
    public int getAllocatedCpus()
