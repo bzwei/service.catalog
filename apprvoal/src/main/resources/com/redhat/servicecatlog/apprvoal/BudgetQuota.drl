@@ -9,6 +9,14 @@ rule "BudgetQuota"
     request : ServiceRequest(item.requestedBudget + item.usedBudget > item.allocatedBudget)
   then
     request.setQuotaStatus("Failed");
+    String allocatedS = java.text.NumberFormat.getCurrencyInstance().format(request.getItem().getRequestedBudget());
+    double shortage = request.getItem().getRequestedBudget() + 
+                      request.getItem().getUsedBudget() -
+                      request.getItem().getAllocatedBudget();
+    String shortageS = java.text.NumberFormat.getCurrencyInstance().format(shortage);
+    
+    String msg = String.format("Quota has gone over allocated %s by %s", allocatedS, shortageS);
+    request.setQuotaErrorMsg(msg);
     System.out.println("fired rule " + kcontext.getRule().getName());
 end
 
