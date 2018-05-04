@@ -28,14 +28,13 @@ public class Approver implements java.io.Serializable
    {
    }
    
-   public void notifySlack(String requester, String project, String serviceName, String description) throws Exception
+   public void notifySlack(String idPrefix, String message) throws Exception
    {
-		this.approvalId = serviceName + java.util.UUID.randomUUID();
-		String title = String.format("\"%s wants to order %s from Red Hat Catalog, deploying to %s, consumption %s.\"", 
-				requester, serviceName, project, description);
+		this.approvalId = idPrefix + java.util.UUID.randomUUID();
+
 		String body = String.join("\n"
 				, "{"
-				, "    \"text\": " + title + ","
+				, "    \"text\": " + message + ","
 				, "    \"attachments\":[{"
 				, "        \"text\": \"Do you want to approve the request?\","
 				, "        \"fallback\": \"Shame... buttons aren't supported in this land\","
