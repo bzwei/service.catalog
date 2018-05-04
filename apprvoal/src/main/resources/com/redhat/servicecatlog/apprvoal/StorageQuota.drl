@@ -9,5 +9,16 @@ rule "StorageQuota"
     request : ServiceRequest(item.requestedStorages + item.usedStorages > item.allocatedStorages)
   then
     request.setQuotaStatus("Failed");
+    
+            
+    String allocatedS = request.getItem().getAllocatedStorages() + "GB";
+    int shortage = request.getItem().getRequestedStorages() + 
+                   request.getItem().getUsedStorages() -
+                   request.getItem().getAllocatedStorages();
+    String shortageS = shortage + "GB";
+    
+    String msg = String.format("Storage has gone over allocated %s by %s", allocatedS, shortageS);
+    request.setQuotaErrorMsg(msg);
+    
     System.out.println("fired rule " + kcontext.getRule().getName());
 end
