@@ -11,11 +11,11 @@ rule "StorageQuota"
     request.setQuotaStatus("Failed");
     
             
-    String allocatedS = request.getItem().getAllocatedStorages() + "GB";
-    int shortage = request.getItem().getRequestedStorages() + 
-                   request.getItem().getUsedStorages() -
-                   request.getItem().getAllocatedStorages();
-    String shortageS = shortage + "GB";
+    String allocatedS = request.getItem().getAllocatedStorages() + "G";
+    int shortage = request.getItem().getAllocatedStorages() - 
+                   request.getItem().getRequestedStorages() -
+                   request.getItem().getUsedStorages();
+    String shortageS = shortage + "G";
     
     String msg = String.format("Storage has gone over allocated %s by %s", allocatedS, shortageS);
     request.setQuotaErrorMsg(msg);
