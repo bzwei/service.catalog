@@ -28,11 +28,11 @@ public class Approver implements java.io.Serializable
    {
    }
    
-   public void notifySlack(String requester, String serviceName, String description) throws Exception
+   public void notifySlack(String requester, String project, String serviceName, String description) throws Exception
    {
 		this.approvalId = serviceName + java.util.UUID.randomUUID();
-		String title = String.format("\"%s has ordered %s with %s from the Red Hat Catalog.\"", 
-				requester, serviceName, description);
+		String title = String.format("\"%s wants to order %s from Red Hat Catalog, deploying to %s, consumption %s.\"", 
+				requester, serviceName, project, description);
 		String body = String.join("\n"
 				, "{"
 				, "    \"text\": " + title + ","
