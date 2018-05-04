@@ -11,9 +11,9 @@ rule "VmQuota"
     request.setQuotaStatus("Failed");
             
     String allocatedS = "" + request.getItem().getAllocatedVms();
-    int shortage = request.getItem().getRequestedVms() + 
-                   request.getItem().getUsedVms() -
-                   request.getItem().getAllocatedVms();
+    int shortage = request.getItem().getAllocatedVms() - 
+                   request.getItem().getRequestedVms() -
+                   request.getItem().getUsedVms();
     String shortageS = "" + shortage;
     
     String msg = String.format("VM has gone over allocated %s by %s", allocatedS, shortageS);
