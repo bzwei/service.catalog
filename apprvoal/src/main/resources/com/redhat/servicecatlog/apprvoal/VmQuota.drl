@@ -9,6 +9,16 @@ rule "VmQuota"
     request : ServiceRequest(item.requestedVms + item.usedVms > item.allocatedVms)
   then
     request.setQuotaStatus("Failed");
+            
+    String allocatedS = "" + request.getItem().getAllocatedVms();
+    int shortage = request.getItem().getRequestedVms() + 
+                   request.getItem().getUsedVms() -
+                   request.getItem().getAllocatedVms();
+    String shortageS = "" + shortage;
+    
+    String msg = String.format("VM has gone over allocated %s by %s", allocatedS, shortageS);
+    request.setQuotaErrorMsg(msg);
+    
     System.out.println("fired rule " + kcontext.getRule().getName());
 end
 
