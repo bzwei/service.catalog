@@ -8,6 +8,15 @@
   <packaging>kjar</packaging>
   <name>approval</name>
   <description>service request approval</description>
+  <!--
+  <repositories>
+    <repository>
+      <id>guvnor-m2-repo</id>
+      <name>Guvnor M2 Repo</name>
+      <url>http://localhost:8080/business-central/maven2/</url>
+    </repository>
+  </repositories>
+  -->
   <distributionManagement>
     <repository>
       <id>remote-vm-repo</id>
@@ -20,13 +29,6 @@
       <url>http://10.8.197.220:8080/business-central/maven2/</url>
     </snapshotRepository>
   </distributionManagement>
-  <repositories>
-    <repository>
-      <id>guvnor-m2-repo</id>
-      <name>Guvnor M2 Repo</name>
-      <url>http://localhost:8080/business-central/maven2/</url>
-    </repository>
-  </repositories>
   <build>
     <plugins>
       <plugin>
