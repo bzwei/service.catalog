@@ -46,8 +46,11 @@ public class ServiceRequest implements java.io.Serializable
    @org.kie.api.definition.type.Label("Quota Approver")
    private com.redhat.servicecatlog.Approver quotaApprover;
 
-   @org.kie.api.definition.type.Label(value = "Project Name")
+   @org.kie.api.definition.type.Label("Project Name")
    private java.lang.String project;
+
+   @org.kie.api.definition.type.Label(value = "Quota Failure Message")
+   private java.lang.String quotaErrorMsg;
 
    public ServiceRequest()
    {
@@ -184,6 +187,16 @@ public class ServiceRequest implements java.io.Serializable
       this.project = project;
    }
 
+   public java.lang.String getQuotaErrorMsg()
+   {
+      return this.quotaErrorMsg;
+   }
+
+   public void setQuotaErrorMsg(java.lang.String quotaErrorMsg)
+   {
+      this.quotaErrorMsg = quotaErrorMsg;
+   }
+
    public ServiceRequest(java.lang.String requester,
          com.redhat.servicecatlog.RequestItem item,
          java.lang.String serviceName, java.lang.String userLabel,
@@ -192,7 +205,7 @@ public class ServiceRequest implements java.io.Serializable
          java.util.List<com.redhat.servicecatlog.Approver> approvers,
          int activeIndex, java.lang.String quotaStatus,
          com.redhat.servicecatlog.Approver quotaApprover,
-         java.lang.String project)
+         java.lang.String project, java.lang.String quotaErrorMsg)
    {
       this.requester = requester;
       this.item = item;
@@ -207,6 +220,7 @@ public class ServiceRequest implements java.io.Serializable
       this.quotaStatus = quotaStatus;
       this.quotaApprover = quotaApprover;
       this.project = project;
+      this.quotaErrorMsg = quotaErrorMsg;
    }
 
 }
