@@ -32,5 +32,13 @@
         <source>PROJECT</source>
       </metadata>
     </repository>
+    <repository>
+      <include>true</include>
+      <metadata>
+        <id>remote-vm-repo</id>
+        <url>http://10.8.197.220:8080/business-central/maven2/</url>
+        <source>DISTRIBUTION_MANAGEMENT</source>
+      </metadata>
+    </repository>
   </repositories>
 </project-repositories>
