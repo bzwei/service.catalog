@@ -11,10 +11,10 @@ rule "MemoryQuota"
     request.setQuotaStatus("Failed");
         
     String allocatedS = request.getItem().getAllocatedMemories() + "GB";
-    int shortage = request.getItem().getRequestedMemories() + 
-                   request.getItem().getUsedMemories() -
-                   request.getItem().getAllocatedMemories();
-    String shortageS = shortage + "GB";
+    int shortage = request.getItem().getAllocatedMemories() - 
+                   request.getItem().getRequestedMemories() -
+                   request.getItem().getUsedMemories();
+    String shortageS = shortage + "G";
     
     String msg = String.format("Memory has gone over allocated %s by %s", allocatedS, shortageS);
     request.setQuotaErrorMsg(msg);
