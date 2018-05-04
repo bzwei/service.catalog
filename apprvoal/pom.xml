@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.redhat.servicecatlog</groupId>
   <artifactId>approval</artifactId>
-  <version>1.0.37</version>
+  <version>1.0.38</version>
   <packaging>kjar</packaging>
   <name>approval</name>
   <description>service request approval</description>
@@ -15,20 +15,6 @@
       <url>http://localhost:8080/business-central/maven2/</url>
     </repository>
   </repositories>
-  <!--
-  <distributionManagement>
-    <repository>
-      <id>remote-vm-repo</id>
-      <name>My Remote Repository</name>
-      <url>http://10.8.197.220:8080/business-central/maven2/</url>
-    </repository>
-    <snapshotRepository>
-      <id>remote-snapshot-repo</id>
-      <name>My Remote Snapshot Repository</name>
-      <url>http://10.8.197.220:8080/business-central/maven2/</url>
-    </snapshotRepository>
-  </distributionManagement>
-  -->
   <build>
     <plugins>
       <plugin>
