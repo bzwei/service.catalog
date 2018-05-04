@@ -11,9 +11,9 @@ rule "CpuQuota"
     request.setQuotaStatus("Failed");
 
     String allocatedS = "" + request.getItem().getAllocatedCpus();
-    int shortage = request.getItem().getRequestedCpus() + 
-                   request.getItem().getUsedCpus() -
-                   request.getItem().getAllocatedCpus();
+    int shortage = request.getItem().getAllocatedCpus() - 
+                   request.getItem().getRequestedCpus() -
+                   request.getItem().getUsedCpus();
     String shortageS = "" + shortage;
     
     String msg = String.format("CPU has gone over allocated %s by %s", allocatedS, shortageS);
