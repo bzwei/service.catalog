@@ -9,6 +9,16 @@ rule "CpuQuota"
     request : ServiceRequest(item.requestedCpus + item.usedCpus > item.allocatedCpus)
   then
     request.setQuotaStatus("Failed");
+
+    String allocatedS = "" + request.getItem().getAllocatedCpus();
+    int shortage = request.getItem().getRequestedCpus() + 
+                   request.getItem().getUsedCpus() -
+                   request.getItem().getAllocatedCpus();
+    String shortageS = "" + shortage;
+    
+    String msg = String.format("CPU has gone over allocated %s by %s", allocatedS, shortageS);
+    request.setQuotaErrorMsg(msg);
+    
     System.out.println("fired rule " + kcontext.getRule().getName());
 end
 
