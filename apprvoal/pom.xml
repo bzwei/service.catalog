@@ -12,9 +12,20 @@
     <repository>
       <id>guvnor-m2-repo</id>
       <name>Guvnor M2 Repo</name>
-      <url>http://localhost:8080/business-central/maven2/</url>
     </repository>
   </repositories>
+  <distributionManagement>
+    <repository>
+      <id>remote-vm-repo</id>
+      <name>My Remote Repository</name>
+      <url>http://10.8.197.220:8080/business-central/maven2/</url>
+    </repository>
+    <snapshotRepository>
+      <id>remote-snapshot-repo</id>
+      <name>My Remote Snapshot Repository</name>
+      <url>http://10.8.197.220:8080/business-central/maven2/</url>
+    </snapshotRepository>
+  </distributionManagement>
   <build>
     <plugins>
       <plugin>
