@@ -10,7 +10,7 @@ rule "MemoryQuota"
   then
     request.setQuotaStatus("Failed");
         
-    String allocatedS = request.getItem().getAllocatedMemories() + "GB";
+    String allocatedS = request.getItem().getAllocatedMemories() + "G";
     int shortage = request.getItem().getAllocatedMemories() - 
                    request.getItem().getRequestedMemories() -
                    request.getItem().getUsedMemories();
