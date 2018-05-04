@@ -9,6 +9,16 @@ rule "MemoryQuota"
     request : ServiceRequest(item.requestedMemories + item.usedMemories > item.allocatedMemories)
   then
     request.setQuotaStatus("Failed");
+        
+    String allocatedS = request.getItem().getAllocatedMemories() + "GB";
+    int shortage = request.getItem().getRequestedMemories() + 
+                   request.getItem().getUsedMemories() -
+                   request.getItem().getAllocatedMemories();
+    String shortageS = shortage + "GB";
+    
+    String msg = String.format("Memory has gone over allocated %s by %s", allocatedS, shortageS);
+    request.setQuotaErrorMsg(msg);
+    
     System.out.println("fired rule " + kcontext.getRule().getName());
 end
 
